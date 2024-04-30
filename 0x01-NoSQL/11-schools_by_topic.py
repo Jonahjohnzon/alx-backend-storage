@@ -1,17 +1,12 @@
 #!/usr/bin/env python3
 """
-Top student
+Where?
 """
+import pymongo
 
 
-def top_students(mongo_collection):
+def schools_by_topic(mongo_collection, topic):
     """
-    return students sorted by average score
+    find specific value
     """
-    return mongo_collection.aggregate([
-        {"$project": {
-            "name": "$name",
-            "averageScore": {"$avg": "$topics.score"}
-        }},
-        {"$sort": {"averageScore": -1}}
-    ])
+    return mongo_collection.find({"topics":  {"$in": [topic]}})
