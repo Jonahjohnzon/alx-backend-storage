@@ -60,8 +60,7 @@ class Cache:
     @call_history
     @count_calls
     def store(self, data: Union[str, bytes,  int,  float]) -> str:
-        """ 
-        randomly generated key
+        """ Randomly generated key
         """
         key = str(uuid4())
         client = self._redis
